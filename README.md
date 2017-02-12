@@ -8,13 +8,13 @@
   * setup a new raw repo call `demo`
   * http://192.168.223.123:8081
   * Commands to update artifacts:
-        curl --fail -u admin:admin123 --upload-file ./modules.zip  'http://192.168.223.130:8081/repository/demo/store/1.0.0/modules.zip'
+        `curl --fail -u admin:admin123 --upload-file ./modules.zip  'http://192.168.223.130:8081/repository/demo/store/1.0.0/modules.zip'`
 
-        curl --fail -u admin:admin123 --upload-file ./standalone.xml  'http://192.168.223.130:8081/repository/demo/store/1.0.0/standalone.xml'
+        `curl --fail -u admin:admin123 --upload-file ./standalone.xml  'http://192.168.223.130:8081/repository/demo/store/1.0.0/standalone.xml'`
 
-        curl --fail -u admin:admin123 --upload-file ./store.war  'http://192.168.223.130:8081/repository/demo/store/1.0.0/store.war'
+        `curl --fail -u admin:admin123 --upload-file ./store.war  'http://192.168.223.130:8081/repository/demo/store/1.0.0/store.war'`
 
-        curl --fail -u admin:admin123 --upload-file ./startup.properties  'http://192.168.223.130:8081/repository/demo/store/1.0.0/startup.properties'
+        `curl --fail -u admin:admin123 --upload-file ./startup.properties  'http://192.168.223.130:8081/repository/demo/store/1.0.0/startup.properties'`
 
   * turn off firewall
 
@@ -65,6 +65,6 @@
 
   * check through the config variables in `group_vars` and `vars`
   * update hosts file with your own ip address
-  * `ansible-playbook ^C hosts site.yml`
+  * `ansible-playbook -i hosts site.yml`
 `
 
