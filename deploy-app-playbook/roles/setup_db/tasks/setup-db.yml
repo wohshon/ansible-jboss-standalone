@@ -1,0 +1,15 @@
+---
+# setup db
+- name: get DDL script
+  get_url:
+    url: "{{ nexus_repo_url }}/{{ application_id }}/{{ application_version }}/{{ ddl_file }}"
+    dest: "/tmp/{{ ddl_file }}"
+  when: (load_ddl is defined or load_ddl == true) and
+        ddl_file is defined
+  
+- name: run DDL script
+  #command: "mysql -u{{ db_user  }} -p{{ db_password }} demodb < /tmp/{{ ddl_file }}"
+  shell: "mysql -udemouser -ppassword.1234 demodb < /tmp/{{ ddl_file }}"
+  when: (load_ddl is defined or load_ddl == true) and
+        ddl_file is defined
+ 

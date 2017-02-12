@@ -1,0 +1,21 @@
+---
+# create a new standalone folder structure
+
+- name: Create new application directory structure
+  file:
+    path: "{{ jboss_eap_home }}/{{ application_id }}"
+    state: directory
+
+# standalone*.xml excluded
+- name: Copy contents over from template directory
+  synchronize:
+    src: "{{ jboss_eap_home }}/standalone/"
+    dest: "{{ jboss_eap_home }}/{{ application_id }}/"
+    rsync_opts:
+      - "--exclude=configuration/*.xml"
+  delegate_to: "{{ inventory_hostname }}"
+
+- name: Pull file from repo based on app name and version
+  get_url:
+    url: "{{ nexus_repo_url}}/{{ application_id }}/{{ application_version }}/{{ application_id }}.war"
+    dest: "{{ jboss_eap_home }}/{{ application_id }}/deployments/{{ application_id }}.war"

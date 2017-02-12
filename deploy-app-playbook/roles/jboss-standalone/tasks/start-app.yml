@@ -1,0 +1,10 @@
+---
+- name: get prop
+  get_url:
+    url: "http://192.168.223.130:8081/repository/demo/{{ application_id }}/{{ application_version }}/{{ startup_prop }}"
+    dest: "{{jboss_eap_home}}/{{ application_id }}/configuration/{{ startup_prop }}"
+
+- name: start app
+  shell : "{{jboss_eap_home}}/bin/standalone.sh -Djboss.server.base.dir=/opt/jboss-eap-7.0/store -b 0.0.0.0 -P {{jboss_eap_home}}/{{ application_id }}/configuration/{{startup_prop  }} &"
+  async: 45
+  poll: 5

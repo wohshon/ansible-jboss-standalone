@@ -1,0 +1,2 @@
+jboss_eap_home: /opt/jboss-eap-7.0
+application_configuration: standalone.xml

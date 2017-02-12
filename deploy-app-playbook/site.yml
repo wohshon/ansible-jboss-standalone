@@ -1,0 +1,19 @@
+# This playbook deploys the whole application stack in this site.
+
+- name: setup db
+  hosts: dbservers
+  remote_user: virtuser
+  vars_files:
+    - vars/application-config.yml
+  roles:
+    - setup_db
+
+- name: configure and deploy the eap applications
+  hosts: webservers
+  remote_user: virtuser
+  vars_files:
+    - vars/application-config.yml
+  roles:
+    - jboss-standalone
+
+

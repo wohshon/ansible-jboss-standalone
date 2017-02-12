@@ -1,0 +1,9 @@
+application_id: store
+application_version: 1.0.0
+load_module: true
+module_file: modules.zip
+load_ddl: true
+ddl_file: import.sql
+db_user: demouser
+db_password: password.1234
+startup_prop: startup.properties

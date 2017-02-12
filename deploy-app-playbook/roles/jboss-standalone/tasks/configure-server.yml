@@ -1,0 +1,16 @@
+---
+# setup server
+- name: Pull configuration file from repo based on app name and version
+  get_url:
+    url: "{{ nexus_repo_url }}/{{ application_id }}/{{ application_version }}/{{ application_configuration }}"
+    dest: "{{jboss_eap_home}}/{{ application_id }}/configuration/{{ application_configuration }}"
+
+- name: Load module files into server
+  debug:
+    msg: "loading modules...."
+- unarchive:
+    src: "{{ nexus_repo_url  }}/{{ application_id }}/{{ application_version }}/{{ module_file }}" 
+    dest: "{{ jboss_eap_home }}"
+    remote_src: True
+  when: (load_module is defined or load_module == true) and
+        module_file is defined

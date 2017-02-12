@@ -1,0 +1,26 @@
+---
+# create a new standalone folder structure
+- name: get file names to copy
+  command: "find /opt/jboss-eap-7.0/standalone -type f"
+#  command: "ls /tmp/test -b"
+  register: files_to_copy
+
+- file:
+    path: /opt/jboss-eap-7.0/app1
+    state: directory
+
+- name: Create new application directory structure
+#  copy:
+#    src: /opt/jboss-eap-7.0/standalone/
+#    dest: /opt/jboss-eap-7.0/app1/
+#    src: "{{ item }}"
+#    dest: /opt/jboss-eap-7.0/app1
+#    remote_src: yes
+#    owner: virtuser
+#    group: virtuser
+#  with_items:
+#    - "{{ files_to_copy.stdout_lines }}"
+  synchronize:
+    src: /opt/jboss-eap-7.0/standalone/
+    dest: /opt/jboss-eap-7.0/app1/
+  delegate_to: "{{ inventory_hostname }}"
