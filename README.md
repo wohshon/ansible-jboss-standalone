@@ -2,9 +2,9 @@
 
 ## 1. Server Nodes
 * #### nexus repo
-  * 192.168.223.130 => change to your own ip
-  * /opt2/nexus/nexus-3.2.0-01/bin/nexus start
-  * /opt2/nexus/nexus-3.2.0-01/bin/nexus stop
+  * a Nexus repo already installed at `192.168.223.130` => change to your own ip
+  * `/opt2/nexus/nexus-3.2.0-01/bin/nexus start`
+  * `/opt2/nexus/nexus-3.2.0-01/bin/nexus stop`
   * setup a new raw repo call `demo`
   * http://192.168.223.123:8081
   * Commands to update artifacts:
@@ -47,11 +47,13 @@
   * Install utilities
 
       `sudo install zip unzip `
+  * `sudo systemctl start mariadb`
   * turn off firewall
 
 ## 2. Software Artifacts
 
 * #### git repo
+
   * `https://github.com/wohshon/ansible-jboss-standalone`
   * `/deploy-app-playbook` - playbook
   * `repo_artifacts` - stuffs to be hosted on repo
@@ -60,6 +62,7 @@
 ## 3. Running the playbook
 
 * #### running the playbook
+
   * check through the config variables in `group_vars` and `vars`
   * update hosts file with your own ip address
   * `ansible-playbook ^C hosts site.yml`
