@@ -1,2 +1,5 @@
-nexus_repo_url: "http://192.168.223.130:8081/repository/demo"
+#v3 format
+#nexus_repo_url: "http://192.168.223.130:8081/repository/demo"
+#v2 format
+nexus_repo_url: "http://192.168.223.130:8081/nexus/content/repositories/demo"
 
