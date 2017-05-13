@@ -18,4 +18,4 @@
 - name: Pull file from repo based on app name and version
   get_url:
     url: "{{ nexus_repo_url}}/{{ application_id }}/{{ application_version }}/{{ application_id }}.war"
-    dest: "{{ jboss_eap_home }}/standalone/deployments/{{ application_id }}.war"
+    dest: "{{ jboss_eap_home }}/{{ application_id }}/{{ application_id }}.war"
