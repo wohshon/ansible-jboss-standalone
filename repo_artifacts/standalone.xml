@@ -148,7 +148,7 @@
                     <driver-class>org.mariadb.jdbc.Driver</driver-class>
                     <driver>mariadb</driver>
                     <security>
-                        <user-name>${db.user}r</user-name>
+                        <user-name>${db.user}</user-name>
                         <password>${db.password}</password>
                     </security>
                 </datasource>
