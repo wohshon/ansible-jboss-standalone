@@ -1,7 +1,7 @@
 ---
 - name: get prop
   get_url:
-    url: "http://192.168.223.130:8081/repository/demo/{{ application_id }}/{{ application_version }}/{{ startup_prop }}"
+    url: "{{ nexus_repo_url  }}/{{ application_id }}/{{ application_version }}/{{ startup_prop }}"
     dest: "{{jboss_eap_home}}/{{ application_id }}/configuration/{{ startup_prop }}"
 
 - name: start app
